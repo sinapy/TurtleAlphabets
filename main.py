@@ -16,6 +16,27 @@ letter_distance = 35
 # EE
 # W
 # R
+# still need to draw: #B, C, D, F, G, I, J, K, L, M, O, Q, S, T, U, V, X, Z
+
+# B
+def draw_b():
+    t.right(90)
+    t.forward(line_height / 2)
+    t.left(90)
+    t.forward(line_height / 4)
+    t.circle(line_height / 4, 180)
+    pos = t.pos()
+    t.right(180)
+    t.circle(line_height / 4, 180)
+    t.forward(line_height / 4)
+    t.right(90)
+    t.right(180)
+    t.forward(line_height / 2)
+    t.penup()
+    t.setposition((pos[0], pos[1]))
+    t.setheading(0)
+    t.forward(letter_distance)
+    t.pendown()
 
 # H
 def draw_h():
@@ -234,6 +255,8 @@ def draw_word(str):
             draw_h()
         elif letter == 'A':
             draw_a()
+        elif letter == 'B':
+            draw_b()
         elif letter == 'P':
             draw_p()
         elif letter == 'Y':
@@ -249,6 +272,6 @@ def draw_word(str):
         elif letter == ' ':
             draw_space()
 
-draw_word("HAPPY NEW YEAR")
-
+# draw_word("HAPPY NEW YEAR")
+draw_word("BAB")
 input()
