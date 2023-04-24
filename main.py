@@ -38,6 +38,24 @@ def draw_b():
     t.forward(letter_distance)
     t.pendown()
 
+# C
+def draw_c():
+    initial_pos = t.pos()
+    y = t.pos()[1]
+    t.right(90)
+    t.circle(line_height / 2, 90)
+    x = t.pos()[0]
+    t.penup()
+    t.setposition(initial_pos)
+    t.pendown()
+    t.setheading(0)
+    t.left(90)
+    t.circle(line_height / -2, 90)
+    t.penup()
+    t.setposition((x, y))
+    t.forward(letter_distance)
+    t.pendown()
+
 # H
 def draw_h():
     H_half_tallness = line_height / 2
@@ -257,6 +275,8 @@ def draw_word(str):
             draw_a()
         elif letter == 'B':
             draw_b()
+        elif letter == 'C':
+            draw_c()
         elif letter == 'P':
             draw_p()
         elif letter == 'Y':
@@ -273,5 +293,5 @@ def draw_word(str):
             draw_space()
 
 # draw_word("HAPPY NEW YEAR")
-draw_word("BAB")
+draw_word("CAC")
 input()
