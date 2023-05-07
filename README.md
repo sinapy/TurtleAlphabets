@@ -31,4 +31,4 @@ This repository is a collection of python functions that represent a logical way
 
 
 # Contribute
-Would you like to contribute? This project is not finished yet. The only letters available are the letters in "HAPPY NEW YEAR". You can become a collaborator and help to complete the code by adding support for more letters. I appreciate all collaborations, bug findings, and reviews. 
+Would you like to contribute? This project is not finished yet. The only letters available are the letters checked in the TODO list. You can become a collaborator and help to complete the code by adding support for more letters. I appreciate all collaborations, bug findings, and reviews. 
