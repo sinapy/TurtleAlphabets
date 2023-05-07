@@ -18,6 +18,37 @@ letter_distance = 35
 # R
 # still need to draw: #B, C, D, F, G, I, J, K, L, M, O, Q, S, T, U, V, X, Z
 
+# A
+def draw_a():
+    A_distance_from_intersection_to_start_of_A = 30
+    A_side = math.sqrt(A_distance_from_intersection_to_start_of_A ** 2 + line_height ** 2)
+    A_start_position = t.position()
+    t.penup()
+    t.setposition((A_start_position[0], A_start_position[1] - line_height / 2))
+    t.pendown()
+    angle_A_creates_with_90_degrees_line = math.degrees(math.asin(A_distance_from_intersection_to_start_of_A / A_side))
+    t.left(90 - angle_A_creates_with_90_degrees_line)
+    t.forward(A_side)
+    t.right((90 - angle_A_creates_with_90_degrees_line) * 2)
+    t.forward(A_side)
+    angle_on_the_second_side = t.heading()
+    t.backward(A_side / 2)
+    t.setheading(0)
+    A_angle_inside_the_triangle = 90 - angle_A_creates_with_90_degrees_line
+    A_middle_line_length_half = math.cos(math.radians(A_angle_inside_the_triangle)) * A_side / 2
+    t.backward(A_middle_line_length_half * 2)
+    t.forward(A_middle_line_length_half * 2)
+    t.setheading(angle_on_the_second_side)
+    t.forward(A_side / 2)
+    t.setheading(0)
+    t.penup()
+    t.forward(letter_distance)
+    t.setheading(90)
+    t.forward(line_height / 2)
+    t.setheading(0)
+    t.pendown()
+
+
 # B
 def draw_b():
     t.right(90)
@@ -56,6 +87,87 @@ def draw_c():
     t.forward(letter_distance)
     t.pendown()
 
+# D
+def draw_d():
+    t.right(90)
+    t.forward(line_height/2)
+    t.back(line_height)
+    t.right(90)
+    t.circle(line_height/2, -180)
+    t.left(90)
+    t.forward(line_height/2)
+    t.right(90)
+    t.penup()
+    t.forward(line_height/2) # radius
+    t.forward(letter_distance)
+    t.pendown()
+
+# E
+def draw_e():
+    E_up_and_down = 50
+    E_middle = E_up_and_down * 3 / 4
+    t.right(90)
+    t.forward(line_height / 2)
+    t.left(90)
+    t.forward(E_up_and_down)
+    t.backward(E_up_and_down)
+    t.right(90)
+    t.backward(line_height / 2)
+
+    t.left(90)
+    t.forward(E_middle)
+    t.backward(E_middle)
+    t.right(90)
+    t.backward(line_height / 2)
+
+    t.left(90)
+    t.forward(E_up_and_down)
+    t.backward(E_up_and_down)
+    t.right(90)
+    t.forward(line_height / 2)
+
+    t.setheading(0)
+    t.penup()
+    t.forward(E_middle)
+    t.forward(letter_distance)
+    t.pendown()
+
+# F
+def draw_f():
+    t.right(90) # turn 90 degrees
+    t.forward(line_height/2) # make the lower vertical
+    t.back(line_height) # make the upper vertical
+    t.left(90) # turn the head to forward
+    t.forward(line_height/2) # make the upper horizontal
+    t.back(line_height/2) # come back
+    t.right(90) # head down
+    t.forward(line_height/2) # get to the middle
+    t.left(90) # turn the head to forward
+    t.forward(line_height/2) # make the middle horizontal
+    t.penup()
+    t.forward(letter_distance)
+    t.pendown()
+
+# G
+def draw_g():
+    t.penup()
+    t.forward(line_height/2)
+    t.left(90)
+    t.forward(line_height/2)
+    t.pendown()
+    t.right(90)
+    t.forward(line_height/6)
+    t.back(line_height/6)
+    t.right(180)
+    t.circle(line_height/2, 270)
+    t.left(90)
+    t.forward(line_height/2)
+    t.back(line_height/2)
+    t.right(180)
+    t.penup()
+    t.forward(letter_distance)
+    t.pendown()
+
 # H
 def draw_h():
     H_half_tallness = line_height / 2
@@ -77,34 +189,102 @@ def draw_h():
     t.pendown()
 
 
-# A
-def draw_a():
-    A_distance_from_intersection_to_start_of_A = 30
-    A_side = math.sqrt(A_distance_from_intersection_to_start_of_A ** 2 + line_height ** 2)
-    A_start_position = t.position()
+# I
+def draw_i():
     t.penup()
-    t.setposition((A_start_position[0], A_start_position[1] - line_height / 2))
+    t.forward(line_height/4)
     t.pendown()
-    angle_A_creates_with_90_degrees_line = math.degrees(math.asin(A_distance_from_intersection_to_start_of_A / A_side))
-    t.left(90 - angle_A_creates_with_90_degrees_line)
-    t.forward(A_side)
-    t.right((90 - angle_A_creates_with_90_degrees_line) * 2)
-    t.forward(A_side)
-    angle_on_the_second_side = t.heading()
-    t.backward(A_side / 2)
-    t.setheading(0)
-    A_angle_inside_the_triangle = 90 - angle_A_creates_with_90_degrees_line
-    A_middle_line_length_half = math.cos(math.radians(A_angle_inside_the_triangle)) * A_side / 2
-    t.backward(A_middle_line_length_half * 2)
-    t.forward(A_middle_line_length_half * 2)
-    t.setheading(angle_on_the_second_side)
-    t.forward(A_side / 2)
-    t.setheading(0)
+    t.left(90)
+    t.forward(line_height/2)
+    t.left(90)
+    t.forward(line_height/4)
+    t.back(line_height/2)
+    t.forward(line_height/4)
+    t.left(90)
+    t.forward(line_height)
+    t.right(90)
+    t.forward(line_height/4)
+    t.back(line_height/2)
+    t.forward(line_height/4)
+    t.right(90)
+    t.forward(line_height/2)
+    t.right(90)
+    t.penup()
+    t.forward(line_height/4)
+    t.forward(letter_distance)
+    t.pendown()
+
+# J
+def draw_j():
+    t.penup()
+    t.forward(line_height/3)
+    t.pendown()
+    t.left(90)
+    t.forward(line_height/2)
+    t.right(90)
+    t.forward(line_height/4)
+    t.right(90)
+    t.forward(line_height/8)
+    t.back(line_height/8)
+    t.left(90)
+    t.back(line_height/4)
+    t.back(line_height/4)
+    t.right(90)
+    t.forward(line_height/8)
+    t.back(line_height/8)
+    t.left(90)
+    t.forward(line_height/4)
+    t.right(90)
+    t.forward(line_height/2)
+    t.forward(line_height/4)
+    t.circle(-line_height/4, 180)
+    t.right(180)
+    t.circle(line_height/4, 180)
+    t.forward(line_height/4)
+    t.right(90)
     t.penup()
     t.forward(letter_distance)
-    t.setheading(90)
-    t.forward(line_height / 2)
+    t.pendown()
+
+# K
+def draw_k():
+    middle_y = t.pos()[1]
+    t.right(90)
+    t.forward(line_height/2)
+    t.back(line_height)
+    t.forward(line_height/2)
+    t.right(180)
+    k_degree = 45
+    side_length = line_height/ 2 / math.cos(math.radians(k_degree))
+    t.right(k_degree)
+    t.forward(side_length)
+    t.back(side_length)
+    t.right(180 - k_degree * 2)
+    t.forward(side_length)
+    t.back(side_length/3)
+    t.penup()
+    t.goto(t.pos()[0], middle_y)
     t.setheading(0)
+    t.forward(letter_distance)
+    t.pendown()
+
+# L
+def draw_l():
+    middle_y = t.pos()[1]
+    t.left(90)
+    t.forward(line_height/2)
+    t.back(line_height)
+    t.right(90)
+    t.forward(line_height/2)
+    t.left(90)
+    t.forward(line_height/8)
+    t.back(line_height/8)
+    t.right(90)
+    t.back(line_height/8)
+    t.penup()
+    t.goto(t.pos()[0], middle_y)
+    t.setheading(0)
+    t.forward(letter_distance)
     t.pendown()
 
 
@@ -167,35 +347,7 @@ def draw_n():
     t.pendown()
 
 
-# E
-def draw_e():
-    E_up_and_down = 50
-    E_middle = E_up_and_down * 3 / 4
-    t.right(90)
-    t.forward(line_height / 2)
-    t.left(90)
-    t.forward(E_up_and_down)
-    t.backward(E_up_and_down)
-    t.right(90)
-    t.backward(line_height / 2)
 
-    t.left(90)
-    t.forward(E_middle)
-    t.backward(E_middle)
-    t.right(90)
-    t.backward(line_height / 2)
-
-    t.left(90)
-    t.forward(E_up_and_down)
-    t.backward(E_up_and_down)
-    t.right(90)
-    t.forward(line_height / 2)
-
-    t.setheading(0)
-    t.penup()
-    t.forward(E_middle)
-    t.forward(letter_distance)
-    t.pendown()
 
 
 # W
@@ -269,22 +421,36 @@ def draw_word(str):
     t.pendown()
     str = str.upper()
     for letter in str:
-        if letter == 'H':
-            draw_h()
-        elif letter == 'A':
+        if letter == 'A':
             draw_a()
         elif letter == 'B':
             draw_b()
         elif letter == 'C':
             draw_c()
+        elif letter == 'D':
+            draw_d()
+        elif letter == 'E':
+            draw_e()
+        elif letter == 'F':
+            draw_f()
+        elif letter == "G":
+            draw_g()
+        elif letter == 'H':
+            draw_h()
+        elif letter == 'I':
+            draw_i()
+        elif letter == 'J':
+            draw_j()
+        elif letter == 'K':
+            draw_k()
+        elif letter == "L":
+            draw_l()
         elif letter == 'P':
             draw_p()
         elif letter == 'Y':
             draw_y()
         elif letter == 'N':
             draw_n()
-        elif letter == 'E':
-            draw_e()
         elif letter == 'W':
             draw_w()
         elif letter == 'R':
@@ -293,5 +459,5 @@ def draw_word(str):
             draw_space()
 
 # draw_word("HAPPY NEW YEAR")
-draw_word("CAC")
+draw_word("ILLI")
 input()
