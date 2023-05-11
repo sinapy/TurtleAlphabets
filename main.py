@@ -287,46 +287,27 @@ def draw_l():
     t.forward(letter_distance)
     t.pendown()
 
-
-# P
-def draw_p():
+# M
+def draw_m():
     t.right(90)
-    t.forward(line_height / 2)
-    t.backward(line_height)
-    circle_full_line = 30
-    t.forward(circle_full_line)
-    t.left(90)
-    t.circle(circle_full_line / 2, 180)
-    t.setheading(-90)
-    t.forward(line_height / 2)
-    t.setheading(0)
-
-    t.penup()
-    t.forward(letter_distance + circle_full_line / 2)
-    t.pendown()
-
-
-# Y
-def draw_y():
-    t.right(90)
-    t.forward(line_height / 2)
-    t.backward(line_height / 2 + line_height / 4)
+    t.forward(line_height/2)
     t.right(180)
-    angle_of_sides_with_90_degrees_line = 30
-    t.left(angle_of_sides_with_90_degrees_line)
-    remaining_line_height = line_height / 2 - line_height / 4
-    Y_side = math.cos(math.radians(angle_of_sides_with_90_degrees_line)) ** -1 * remaining_line_height
-    t.forward(Y_side)
-    t.backward(Y_side)
-    t.right(angle_of_sides_with_90_degrees_line * 2)
-    t.forward(Y_side)
-    t.setheading(0)
-    position_on_the_top_of_the_right_Y_side = t.position()
+    t.forward(line_height)
+    t.right(90)
+    m_degree = 25
+    t.right(90 - m_degree)
+    side_length = line_height / math.cos(math.radians(m_degree))
+    t.forward(side_length)
+    t.left(90 - m_degree)
+    t.left(90 - m_degree)
+    t.forward(side_length)
+    t.setheading(-90)
+    t.forward(line_height)
+    t.back(line_height/2)
+    t.left(90)
     t.penup()
-    t.setposition((position_on_the_top_of_the_right_Y_side[0], 0))
     t.forward(letter_distance)
     t.pendown()
-
 
 # N
 def draw_n():
@@ -346,9 +327,85 @@ def draw_n():
     t.forward(letter_distance)
     t.pendown()
 
+# O
+def draw_o():
+    t.right(90)
+    t.circle(line_height/2)
+    t.left(90)
+    t.penup()
+    t.forward(line_height)
+    t.forward(letter_distance)
+    t.pendown()
 
+# P
+def draw_p():
+    t.right(90)
+    t.forward(line_height / 2)
+    t.backward(line_height)
+    circle_full_line = 30
+    t.forward(circle_full_line)
+    t.left(90)
+    t.circle(circle_full_line / 2, 180)
+    t.setheading(-90)
+    t.forward(line_height / 2)
+    t.setheading(0)
 
+    t.penup()
+    t.forward(letter_distance + circle_full_line / 2)
+    t.pendown()
 
+# Q
+def draw_q():
+    t.right(90)
+    t.circle(line_height / 2)
+    t.left(90)
+    t.penup()
+    t.forward(line_height / 2)
+    t.right(90)
+    t.forward(line_height / 8 * 1.5) # I'm trying to start the \ line lower than the middle of the circle
+    left_side = line_height / 2 - (line_height / 8 * 1.5) # all these calculations is to find the new angle based on the new start
+    bottom_side = line_height / 2
+    angle_radian = math.atan(bottom_side / left_side)
+    angle_degrees = math.degrees(angle_radian)
+    t.left(angle_degrees)
+    t.pendown()
+    side_length = bottom_side / math.sin(angle_radian)
+    t.forward(side_length)
+    t.penup()
+    t.left(90 - angle_degrees)
+    t.left(90)
+    t.forward(line_height / 2)
+    t.right(90)
+    t.forward(letter_distance)
+    t.pendown()
+
+# R
+def draw_r():
+    t.right(90)
+    t.forward(line_height / 2)
+    t.backward(line_height / 2)
+    t.setheading(0)
+    t.circle(line_height / 2 / 2, 180)
+    t.setheading(-90)
+    t.forward(line_height / 2)
+    R_remaining_side_length = math.sqrt((line_height / 2) ** 2 + (line_height / 2 / 2) ** 2)
+    angle_for_last_side = math.degrees(math.asin((line_height / 2 / 2)/R_remaining_side_length))
+    t.left(angle_for_last_side)
+    t.forward(R_remaining_side_length)
+    t.backward(R_remaining_side_length)
+    t.setheading(0)
+
+    t.penup()
+    t.forward(line_height / 2 / 2 + letter_distance)
+    t.pendown()
+
+# S
+
+# T
+
+# U
+
+# V
 
 # W
 def draw_w():
@@ -379,25 +436,36 @@ def draw_w():
     t.forward(letter_distance)
     t.pendown()
 
-# R
-def draw_r():
+# X
+
+
+# Y
+def draw_y():
     t.right(90)
     t.forward(line_height / 2)
-    t.backward(line_height / 2)
+    t.backward(line_height / 2 + line_height / 4)
+    t.right(180)
+    angle_of_sides_with_90_degrees_line = 30
+    t.left(angle_of_sides_with_90_degrees_line)
+    remaining_line_height = line_height / 2 - line_height / 4
+    Y_side = math.cos(math.radians(angle_of_sides_with_90_degrees_line)) ** -1 * remaining_line_height
+    t.forward(Y_side)
+    t.backward(Y_side)
+    t.right(angle_of_sides_with_90_degrees_line * 2)
+    t.forward(Y_side)
     t.setheading(0)
-    t.circle(line_height / 2 / 2, 180)
-    t.setheading(-90)
-    t.forward(line_height / 2)
-    R_remaining_side_length = math.sqrt((line_height / 2) ** 2 + (line_height / 2 / 2) ** 2)
-    angle_for_last_side = math.degrees(math.asin((line_height / 2 / 2)/R_remaining_side_length))
-    t.left(angle_for_last_side)
-    t.forward(R_remaining_side_length)
-    t.backward(R_remaining_side_length)
-    t.setheading(0)
-
+    position_on_the_top_of_the_right_Y_side = t.position()
     t.penup()
-    t.forward(line_height / 2 / 2 + letter_distance)
+    t.setposition((position_on_the_top_of_the_right_Y_side[0], 0))
+    t.forward(letter_distance)
     t.pendown()
+
+
+# Z
+
+
+
+
 
 # space
 def draw_space():
@@ -445,19 +513,32 @@ def draw_word(str):
             draw_k()
         elif letter == "L":
             draw_l()
-        elif letter == 'P':
-            draw_p()
-        elif letter == 'Y':
-            draw_y()
+        elif letter == "M":
+            draw_m()
         elif letter == 'N':
             draw_n()
-        elif letter == 'W':
-            draw_w()
+        elif letter == "O":
+            draw_o()
+        elif letter == 'P':
+            draw_p()
+        elif letter == 'Q':
+            draw_q()
         elif letter == 'R':
             draw_r()
+        elif letter == 'W':
+            draw_w()
+        elif letter == 'Y':
+            draw_y()
         elif letter == ' ':
             draw_space()
 
 # draw_word("HAPPY NEW YEAR")
-draw_word("ILLI")
+draw_word("IQQI")
+
+
+
+
+
+
+
 input()
