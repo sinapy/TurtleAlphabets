@@ -20,14 +20,14 @@ This repository is a collection of python functions that represent a logical way
 - [x] P
 - [x] Q
 - [x] R
-- [ ] S
-- [ ] T
-- [ ] U
-- [ ] V
+- [x] S
+- [x] T
+- [x] U
+- [x] V
 - [x] W
-- [ ] X
+- [x] X
 - [x] Y
-- [ ] Z
+- [x] Z
 
 
 # Contribute
