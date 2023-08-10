@@ -400,12 +400,85 @@ def draw_r():
     t.pendown()
 
 # S
+def draw_s():
+    t.right(90)
 
+    radius = line_height / 4.8
+    circle_completeness = 225
+    t.penup()
+    t.forward(line_height / 2 - radius)
+    t.pendown()
+    t.circle(radius, circle_completeness)
+    angle = (circle_completeness - 180)
+    middle_of_s_length = (line_height - (2 * radius) - (2 * math.sin(math.radians(angle)) * radius)) * (math.cos(math.radians(angle)) ** -1)
+    t.forward(middle_of_s_length / 2)
+    middle_of_s = t.pos()
+    t.forward(middle_of_s_length / 2)
+    t.circle(-radius, circle_completeness)
+    t.penup()
+    t.goto(middle_of_s)
+    t.seth(0)
+    t.forward(radius)
+    t.forward(letter_distance)
+    t.pendown()
 # T
-
+def draw_t():
+    t.penup()
+    t.forward(line_height/4)
+    t.pendown()
+    t.left(90)
+    t.forward(line_height/2)
+    t.left(90)
+    t.forward(line_height/4)
+    t.back(line_height/2)
+    t.forward(line_height/4)
+    t.left(90)
+    t.forward(line_height)
+    t.backward(line_height/2)
+    t.left(90)
+    t.penup()
+    t.forward(line_height/4)
+    t.forward(letter_distance)
+    t.pendown()
 # U
+def draw_u():
+    t.left(90)
+    t.forward(line_height / 2)
+    t.backward(line_height / 2)
+    t.right(180)
+    t.forward(line_height / 4)
+    t.circle(line_height / 4, 180)
+    t.forward(line_height / 4 * 3)
+    t.backward(line_height / 2)
+    t.right(90)
+    t.penup()
+    t.forward(letter_distance)
+    t.pendown()
+
 
 # V
+def draw_v():
+    first_angle = 15
+    second_angle = 15
+    t.left(90)
+    t.penup()
+    t.forward(line_height / 2)
+    t.pendown()
+    t.setheading(0)
+    t.right(90 - first_angle)
+    V_side = math.cos(math.radians(first_angle)) ** -1 * line_height
+    t.forward(V_side)
+    t.setheading(90)
+    t.right(second_angle)
+    t.forward(V_side)
+    t.setheading(-90) # done
+
+    t.setheading(0)
+    position_on_the_top_of_the_right_W_side = t.position()
+    t.penup()
+    t.setposition((position_on_the_top_of_the_right_W_side[0], 0))
+    t.forward(letter_distance)
+    t.pendown()
 
 # W
 def draw_w():
@@ -437,6 +510,41 @@ def draw_w():
     t.pendown()
 
 # X
+def draw_x():
+    left_width = line_height / 3
+    angle_between_V_sides = 78.4
+    t.penup()
+    t.forward(left_width)
+    up_left_angle = math.degrees(math.atan(line_height / 2 / left_width))
+    t.left(180 - up_left_angle)
+    t.pendown()
+    left_corner_to_middle = middle_to_bottom_right = math.sqrt((line_height / 2) ** 2 + left_width ** 2)
+    t.forward(left_corner_to_middle)
+    heading = t.heading()
+    t.setheading(0)
+    t.forward(line_height / 8)
+    t.backward(line_height / 4)
+    t.forward(line_height / 8)
+    t.setheading(heading)
+    t.right(180)
+    t.forward(left_corner_to_middle + middle_to_bottom_right)
+    t.setheading(0)
+    t.forward(line_height / 8)
+    t.backward(line_height / 4)
+    t.forward(line_height / 8)
+    t.setheading(heading)
+    t.forward(middle_to_bottom_right)
+    t.right(angle_between_V_sides)
+    heading = t.heading()
+    top_right_corner_to_middle = middle_to_bottom_left = math.sin(math.radians(heading)) ** -1 * (line_height / 2)
+    t.forward(top_right_corner_to_middle)
+    t.back(top_right_corner_to_middle + middle_to_bottom_left)
+    t.forward(middle_to_bottom_left)
+    t.setheading(0)
+    t.penup()
+    t.forward(left_width)
+    t.forward(letter_distance)
+    t.pendown()
 
 
 # Y
@@ -462,6 +570,30 @@ def draw_y():
 
 
 # Z
+def draw_z():
+    upper_line_length = line_height / 2
+    t.penup()
+    t.left(90)
+    t.forward(line_height / 2)
+    t.right(90)
+    t.pendown()
+
+    angle = math.degrees(math.atan(line_height / upper_line_length))
+    turn_angle = 180 - angle
+
+    t.forward(upper_line_length)
+    t.right(turn_angle)
+    t.forward(math.sqrt(upper_line_length ** 2 + line_height ** 2))
+    t.left(turn_angle)
+
+    t.forward(upper_line_length)
+
+    t.penup()
+    t.left(90)
+    t.forward(line_height / 2)
+    t.right(90)
+    t.forward(letter_distance)
+    t.pendown()
 
 
 
@@ -525,15 +657,27 @@ def draw_word(str):
             draw_q()
         elif letter == 'R':
             draw_r()
+        elif letter == 'S':
+            draw_s()
+        elif letter == 'T':
+            draw_t()
+        elif letter == 'U':
+            draw_u()
+        elif letter == 'V':
+            draw_v()
         elif letter == 'W':
             draw_w()
+        elif letter == 'X':
+            draw_x()
         elif letter == 'Y':
             draw_y()
+        elif letter == 'Z':
+            draw_z()
         elif letter == ' ':
             draw_space()
 
 # draw_word("HAPPY NEW YEAR")
-draw_word("IQQI")
+draw_word("DOPAMINE")
 
 
 
