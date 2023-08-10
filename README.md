@@ -14,11 +14,11 @@ This repository is a collection of python functions that represent a logical way
 - [x] J
 - [x] K
 - [x] L
-- [ ] M
+- [x] M
 - [x] N
-- [ ] O
+- [x] O
 - [x] P
-- [ ] Q
+- [x] Q
 - [x] R
 - [ ] S
 - [ ] T
