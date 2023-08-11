@@ -5,32 +5,7 @@ This repository is a collection of python functions that represent a logical way
 Go to main.py, install all required packages. Go all the way down, and replace what is inside draw_word(   ) with what you want.
 
 # TODO
-- [x] A
-- [x] B
-- [x] C
-- [x] D
-- [x] E
-- [x] F
-- [x] G
-- [x] H
-- [x] I
-- [x] J
-- [x] K
-- [x] L
-- [x] M
-- [x] N
-- [x] O
-- [x] P
-- [x] Q
-- [x] R
-- [x] S
-- [x] T
-- [x] U
-- [x] V
-- [x] W
-- [x] X
-- [x] Y
-- [x] Z
+- [ ] multi-line printing 
 
 
 # Contribute
