@@ -9,4 +9,7 @@ Go to main.py, install all required packages. Go all the way down, and replace w
 
 
 # Contribute
-Would you like to contribute? This project is not finished yet. The only letters available are the letters checked in the TODO list. You can become a collaborator and help to complete the code by adding support for more letters. I appreciate all collaborations, bug findings, and reviews. 
+Would you like to contribute? 
+* are you aware of mathematical ways of drawing letters? You can create an issue with the mathematical way attached.
+* do you see a better way of drawing a letter? create an issue with the differences of the current way and your proposal.
+* are you interested to work with the turtle library in this project? Check the issues that are approved to be changed, and create a pull request with your changes.
